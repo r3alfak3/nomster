@@ -1,0 +1,10 @@
+<div class="booya-box col-10 offset-1">
+  <h1>Enter a delicious place to eat:</h1>
+  <%= simple_form_for @place do |f| %>
+    <%= f.input :name, placeholder: "eg. Anything but Mickey D's" %>
+    <%= f.input :address, placeholder: "111 Broadway NY, NY 10011" %>
+    <%= f.input :description, placeholder: "awesome & cool" %>
+    <br />
+    <%= f.submit 'Create', class: 'btn btn-primary' %>
+  <% end %>
+</div>
