@@ -3,6 +3,17 @@
   <i> <%= @place.address %></i>
   <br />
   <p> <%= @place.description %></p>
+  <div class="float-right">
+  <% if current_user && current_user == @place.user %>
+    <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+    <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to pull a Thanos on your place?'}, class: 'btn btn-danger' %>
+    <% end %>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Add a Comment
+  </button>
+  <br />
+  <br />
+  </div>
   <div class="clear"></div>
  <% if @place.latitude.present? && @place.longitude.present? %>
   <script>
@@ -27,51 +38,41 @@
   <div id="map"></div>
 <% end %>
 <br />
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Add a Comment
-</button>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="commentModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="commentModal">Any thoughts?</h5>
+        <h4 class="modal-title" id="commentModal">Any thoughts?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+        <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
         <div class="modal-body">
-          <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-          <div class="moda">
-            <%= f.input :message %>
-            <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-          </div>
-          <div class="modal-footer">
-            <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
-          </div>
-         <% end %>
+          <%= f.input :message %>
+          <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
         </div>
+        <div class="modal-footer">
+          <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div><h1>Comments</h1>
 
-<% @place.comments.each do |comment| %>
-  <div>
-    <blockquote>
-      <% if comment.humanized_rating.present? %>
-        <b><%= comment.humanized_rating %></b> -
-      <% end %>
-        <%= comment.message %>
-      <small><%= comment.user.email %></small>
-    </blockquote>
-  </div>
-<% end %> 
-
-  <div class="float-right">
-    <% if current_user && current_user == @place.user %>
-      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-      <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to pull a Thanos on your place?'}, class: 'btn btn-danger' %>
-    <% end %>
-  </div>
-  <br />
+<div class="row">
+  <% @place.comments.each do |comment| %>
+    <div class="col-12 col-sm-6">
+      <blockquote>
+        <% if comment.humanized_rating.present? %>
+          <b><%= comment.humanized_rating %></b> -
+        <% end %>
+          <%= comment.message %>
+          <br />
+        <small class="float-right"><%= comment.user.email %></small>
+        <br/>
+      </blockquote>
+    </div>
+  <% end %> 
 </div>
