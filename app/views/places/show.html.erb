@@ -4,6 +4,13 @@
   <br />
   <p> <%= @place.description %></p>
 
+  <div class="clear"></div>
+  <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
+    <% f.input :message %>
+    <% f.input :rating %>
+    <% f.submit "Add a Comment", class: 'btn btn-primary' %>
+  <% end %>
+  <div class="clear"></div>
 <% if @place.latitude.present? && @place.longitude.present? %>
   <script>
     function initMap() {
@@ -23,12 +30,25 @@
   </script>
 
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKN16O4vA5cQkc5oRITLU_3Ac_LWog2h8&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDklG_Zc_FsM6myfhQDi_zMmNR30dLQx3Q&callback=initMap">
   </script>
 
   <div id="map"></div>
 <% end %>
 <br />
+
+<h1>Comments</h1>
+
+<% @place.comments.each do |comment| %>
+  <div>
+    <blockquote>
+      <b><%= comment.rating %></b> -
+        <%= comment.message %>
+      <small><%= comment.user.email %></small>
+    </blockquote>
+  </div>
+<% end %>
+
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
