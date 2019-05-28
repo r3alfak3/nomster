@@ -11,7 +11,9 @@
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   Add a Comment
   </button>
-  <br />
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#yourModal">
+  Upload a Picture
+  </button>  <br />
   <br />
   </div>
   <div class="clear"></div>
@@ -38,7 +40,7 @@
   <div id="map"></div>
 <% end %>
 <br />
-<!-- Modal -->
+<!-- Comment Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="commentModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -48,6 +50,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+        <div class="clear"></div>
         <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
         <div class="modal-body">
           <%= f.input :message %>
@@ -59,8 +62,39 @@
       <% end %>
     </div>
   </div>
-</div><h1>Comments</h1>
+</div>
 
+<!-- Comment Modal -->
+<div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="photoModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="photoModal">Any thoughts?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="clear"></div>
+        <%= simple_form_for @image_place, url: place_image_places_path(@place) do |f| %>
+        <div class="modal-body">
+          <%= f.input :caption %>
+          <%= f.file_field :imagePlace %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Upload Picture", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<h1>Photos</h1>
+<% @place.image_places.each do |image_place| %>
+  <%= image_place.imagePlace %>
+  <%= image_place.caption %>
+<% end %>
+
+<h1>Comments</h1>
 <div class="row">
   <% @place.comments.each do |comment| %>
     <div class="col-12 col-sm-6">
