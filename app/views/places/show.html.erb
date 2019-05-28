@@ -90,7 +90,7 @@
 
 <h1>Photos</h1>
 <% @place.image_places.each do |image_place| %>
-  <%= image_place.imagePlace %>
+  <%= image_tag image_place.imagePlace.url %>
   <%= image_place.caption %>
 <% end %>
 
