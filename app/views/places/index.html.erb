@@ -1,13 +1,19 @@
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
-    <h1><%= link_to place.name, place_path(place) %></h1>
-    <i><%= place.description %></i><br /><br />
-    <p><%= place.address %></p><br />
-
-    
-    <% if place.user.present? %>
-      <small><%= place.user.email %></small>
-    <% end %>
+    <div class="col-12 col-sm-6 float-left">
+      <h1><%= link_to place.name, place_path(place) %></h1>
+      <i><%= place.description %></i><br /><br />
+      <p><%= place.address %></p>
+      <% if place.user.present? %>
+        <small><%= "Contributed by: " + place.user.email %></small>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-6 float-right">  
+      <% if place.image_places.any? %>
+        <%= image_tag place.image_places.first.imagePlace.url, class: 'img-fluid' %>
+      <% end %>
+    </div>
+  <div class="clear"></div>
   </div>
 <% end %>
 

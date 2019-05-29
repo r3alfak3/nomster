@@ -6,5 +6,4 @@ class Place < ApplicationRecord
   after_validation :geocode
   validates :name, length: { minimum: 3 }
   validates :name, :address, :description, presence: true
-  mount_uploader :imagePlace, ImagePlaceUploader
 end

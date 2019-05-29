@@ -40,6 +40,7 @@
   <div id="map"></div>
 <% end %>
 <br />
+
 <!-- Comment Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="commentModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -74,7 +75,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <div class="clear"></div>
+      <div class="clear"></div>
         <%= simple_form_for @image_place, url: place_image_places_path(@place) do |f| %>
         <div class="modal-body">
           <%= f.input :caption %>
@@ -92,7 +93,7 @@
     <div class="row">
       <% @place.image_places.each do |image_place| %>
         <div class="col-2 float-left">
-          <%= image_tag image_place.imagePlace.url, class: 'img-fluid' %>
+          <%= image_tag place.image_place.imagePlace.url, class: 'img-fluid' %>
           <%= image_place.caption %>
         </div>
       <% end %>
@@ -117,4 +118,5 @@
     </div>
   <% end %> 
 </div>
+
 </div>
