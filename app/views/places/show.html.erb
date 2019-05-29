@@ -88,11 +88,18 @@
   </div>
 </div>
 
-<h1>Photos</h1>
-<% @place.image_places.each do |image_place| %>
-  <%= image_tag image_place.imagePlace.url %>
-  <%= image_place.caption %>
-<% end %>
+  <h1>Photos</h1>
+    <div class="row">
+      <% @place.image_places.each do |image_place| %>
+        <div class="col-2 float-left">
+          <%= image_tag image_place.imagePlace.url, class: 'img-fluid' %>
+          <%= image_place.caption %>
+        </div>
+      <% end %>
+    </div>
+
+<div class="clear"></div>
+<br />
 
 <h1>Comments</h1>
 <div class="row">
@@ -109,4 +116,5 @@
       </blockquote>
     </div>
   <% end %> 
+</div>
 </div>

@@ -4,6 +4,8 @@
     <i><%= place.description %></i><br /><br />
     <p><%= place.address %></p><br />
 
+    <%= image_tag @image_places, class: 'img-fluid' %>
+    
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
