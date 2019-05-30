@@ -2,7 +2,8 @@ class ImagePlacesController < ApplicationController
   before_action :authenticate_user!
  
 def index
-
+  @image_places = ImagePlace.find(params[:id])
+  @image_places.all
 end
 
   def create

@@ -89,34 +89,36 @@
   </div>
 </div>
 
+<% if @place.image_places.any? %>
   <h1>Photos</h1>
     <div class="row">
       <% @place.image_places.each do |image_place| %>
-        <div class="col-2 float-left">
-          <%= image_tag place.image_place.imagePlace.url, class: 'img-fluid' %>
-          <%= image_place.caption %>
+        <div class="col-12 col-sm-2 float-left">
+          <%= image_tag image_place.imagePlace.url, class: 'img-fluid img-thumbnail' %>
+          <%= image_place.caption %><br /><br />
         </div>
       <% end %>
     </div>
+  <div class="clear"></div>
+  <br />
+<% end %>
 
-<div class="clear"></div>
-<br />
-
-<h1>Comments</h1>
-<div class="row">
-  <% @place.comments.each do |comment| %>
-    <div class="col-12 col-sm-6">
-      <blockquote>
-        <% if comment.humanized_rating.present? %>
-          <b><%= comment.humanized_rating %></b> -
-        <% end %>
-          <%= comment.message %>
-          <br />
-        <small class="float-right"><%= comment.user.email %></small>
-        <br/>
-      </blockquote>
+<% if @place.comments.any? %>
+  <h1>Comments</h1>
+    <div class="row">
+      <% @place.comments.each do |comment| %>
+        <div class="col-12 col-sm-6">
+          <blockquote>
+            <% if comment.humanized_rating.present? %>
+              <b><%= comment.humanized_rating %></b> -
+            <% end %>
+              <%= comment.message %>
+              <br />
+            <small class="float-right"><%= comment.user.email %></small>
+            <br/>
+          </blockquote>
+        </div>
+      <% end %> 
     </div>
-  <% end %> 
-</div>
-
+<% end %>
 </div>

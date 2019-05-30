@@ -29,7 +29,7 @@ blockquote {
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: "\201C""\201D""\201C""\201D";
 }
 
 blockquote:before {
@@ -56,7 +56,7 @@ blockquote p {
   padding: 2px 8px;  
 }
 
-.navbar {
+.navbar, footer {
   background: image_url('dark_fish_skin.png');
   box-shadow: 0px 2px 3px #666666;
 }
@@ -72,7 +72,7 @@ blockquote p {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-.navbar-nav a {
+.navbar-nav a, footer, footer a, footer a:hover {
   color: white;
   font-family: 'Lato';
   font-weight: 700;
@@ -97,9 +97,9 @@ blockquote p {
 .pagination {
   background: white;
   cursor: default;
-  height: 22px;
+  height: 32px;
   a, span, em {
-    padding: 0.2em 0.5em;
+    padding: 0.1em 0.7em;
     display: block;
     float: left;
     margin-right: 1px;
@@ -110,17 +110,17 @@ blockquote p {
   .current {
     font-style: normal;
     font-weight: bold;
-    background: #2e6ab1;
-    color: white;
-    border: 1px solid #2e6ab1;
+    background: #dddddd;
+    color: 888888;
+    border: 1px solid #dddddd;
   }
   a {
     text-decoration: none;
-    color: #105cb6;
-    border: 1px solid #9aafe5;
+    color: #444444;
+    border: 1px solid #aaaaaa;
     &:hover, &:focus {
-      color: #000033;
-      border-color: #000033;
+      color: #888888;
+      border-color: #aaaaaa;
     }
   }
   .page_info {

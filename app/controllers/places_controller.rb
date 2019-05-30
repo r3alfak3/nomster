@@ -43,7 +43,7 @@ def update
 
   @place.update_attributes(place_params)
   if @place.valid?
-    redirect_to place _path
+    redirect_to place_path
   else
     render :edit, status: :unprocessible_entity
   end
