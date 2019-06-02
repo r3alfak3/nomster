@@ -33,6 +33,12 @@
         <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item">
+              <%= link_to user_path(current_user), class: 'nav-link' do %>
+                <i class="fas fa-user-ninja"></i>
+                Profile
+              <% end %>
+            </li>
+            <li class="nav-item">
               <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
                 <i class="fas fa-sign-out-alt"></i>
                 Sign Out
@@ -54,6 +60,7 @@
           <% end %>
       </div>
     </nav>
+
     <% if notice.present? %>
     <p class="alert alert-info"><%= notice %></p>
     <% end %>

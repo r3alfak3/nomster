@@ -44,6 +44,17 @@
         <small><%= "Contributed by: " + place.user.email %></small>
       <% end %>
     </div>
+    <% if place.comments.present? %>
+      <div class="col-12">
+        <blockquote>
+          <% if place.comments.last.humanized_rating.present? %>
+            <b><%= place.comments.last.humanized_rating %></b> -
+          <% end %>
+          <%= place.comments.last.message %>
+          <small><%= place.comments.last.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>
     <div class="col-12 col-sm-6 float-right">
       <% if place.image_places.any? %>
         <%= image_tag place.image_places.first.imagePlace.url, class: 'img-fluid rounded-lg' %>
