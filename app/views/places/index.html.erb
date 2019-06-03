@@ -36,8 +36,8 @@
 
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1 rounded-lg">
-    <div class="col-12 col-sm-6 float-left">
-      <h1 class="selector-1"><%= link_to place.name, place_path(place) %></h1>
+    <div class="col-12 col-lg-6 float-left">
+      <h1><%= link_to place.name, place_path(place) %></h1>
       <i><%= place.description %></i><br /><br />
       <p><%= place.address %></p>
       <% if place.user.present? %>
@@ -53,7 +53,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-12 col-sm-6 float-right">
+    <div class="col-12 col-lg-6 float-right">
       <% if place.image_places.any? %>
         <%= image_tag place.image_places.first.imagePlace.url, class: 'img-fluid rounded-lg' %>
       <% end %>

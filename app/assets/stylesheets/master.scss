@@ -10,38 +10,55 @@ body {
   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
+a {
+  color: #555555;
+  text-decoration: none;
+  &:hover, &:focus {
+  color: #888888;
+  text-decoration: none;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Pacifico';
   margin: 0;
   padding: 0;
 }
 
-h1 a {
-  color: black;
-}
-
-h1 a:hover {
-  color: #444444;
+h1 {
+  font-size: 1.8rem;
 }
 
 h2 {
   font-size: 1.7rem;
+  color: #333333;
 }
 
 h3 {
   font-size: 1.5rem;  
+  color: #222222;
 }
 
 h4 {
   font-size: 1.2rem;  
+  color: #111111;
 }
 
 h5 {
   font-size: 1rem;
+  color: #000000;
 }
 
 p {
-  font-size: 1rem;  
+  font-size: .75rem;  
+}
+
+p.copyright {
+  font-size: .6rem;
+}
+
+.af {
+  font-family: 'Abril Fatface';
 }
 
 blockquote {
@@ -102,13 +119,17 @@ blockquote p {
   font-weight: 700;
 }
 
+footer h3 {
+  color: #ffffff
+}
+
 #map {
   height: 300px;
 }
 
 .booyah-box {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: #ffffff;
+  border: 1px solid #cccccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   margin: 10px auto 15px;
   padding: 20px;
@@ -125,32 +146,38 @@ blockquote p {
 .pagination {
   background: white;
   cursor: default;
-  height: 32px;
   a, span, em {
-    padding: 0em 0.5em 0.3em 0.5em;
-    display: block;
+    padding: .35em .65em;
+    display: inline-block;
     float: left;
     margin-right: 1px;
   }
+  
   .disabled {
     display: none;
   }
+  
   .current {
     font-style: normal;
     font-weight: bold;
     background: #dddddd;
-    color: 888888;
+    color: #888888;
     border: 1px solid #dddddd;
+    border-radius: 5px;
   }
+  
   a {
     text-decoration: none;
     color: #444444;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
     &:hover, &:focus {
       color: #888888;
-      border-color: #aaaaaa;
+      border: 1px solid #888888;
+      border-radius: 5px;
     }
   }
+  
   .page_info {
     background: #2e6ab1;
     color: white;
@@ -184,6 +211,9 @@ blockquote p {
   position: absolute;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
   width: 100%;
+  h3 {
+    color: #ffffff;
+  }
 }
 
 /*

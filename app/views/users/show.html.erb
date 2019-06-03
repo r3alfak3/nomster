@@ -3,11 +3,11 @@
     <div class="col-12 col-sm-2 offset-4 offset-sm-1 text-center mh-100 my-auto">
       <%= image_tag 'user-default.png' %>
     </div>
-    <div class="col-12 col-sm-8 offset-0 offset-sm-1">
-      <h1><%= @user.email %></h1>
-      <p> Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
-      <p>User has commented <%= @user.comments.count %> times.</p>
-      <p>User has given <%= @user.comments.where(rating: '5_stars').count %> Five <i class="fas fa-star"></i> ratings to places & rated a total of <%= @user.comments.count %> places.</p>
+    <div class="col-12 col-sm-8 offset-0 offset-sm-1 text-sm-left text-center">
+      <h1><%= @user.email %></h1><br />
+      <p> Member Since: <%= @user.created_at.strftime("%B %d, %Y") %><br />
+      User has commented <%= @user.comments.count %> times.<br />
+      User has given <%= @user.comments.where(rating: '5_stars').count %> Five <i class="fas fa-star"></i> ratings to places & rated a total of <%= @user.comments.count %> places.</p>
     </div>
   </div>
   <div class="clear"></div>
@@ -15,11 +15,11 @@
 
 <div class="booyah-box col-10 offset-1 rounded-lg">
   <% if @user.comments.any? %>
-  <h2>My Comments</h2><br />
+  <h2 class="af">My Comments</h2><br />
     <div class="row">
       <% @user.comments.each do |comment| %>
         <div class="col-12 col-sm-6">
-          <h5 class="text-center"><%= link_to comment.place.name, place_path(comment.place) %></h5>
+          <h4 class=" text-sm-left text-center"><%= link_to comment.place.name, place_path(comment.place) %></h4>
           <blockquote>
             <% if comment.humanized_rating.present? %>
               <b><%= comment.humanized_rating %></b> -
@@ -37,12 +37,12 @@
 
 <div class="booyah-box col-10 offset-1 rounded-lg">
   <% if @user.places.any? %>
-    <h2>My Places</h2><br />
+    <h2 class="af">My Places</h2><br />
     <% @user.places.each do |place| %>
       <div class="col-12 col-sm-6 float-left">
         <h1><%= link_to place.name, place_path(place) %></h1>
-        <i><%= place.description %></i><br /><br />
-        <p><%= place.address %></p>
+        <i><%= place.description %></i><br />
+        <p><%= place.address %></p><br />
       </div>
       <% if place.comments.present? %>
         <div class="col-12 col-sm-6 float-right">
