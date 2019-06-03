@@ -2,6 +2,15 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+html {
+  font-size: 16px;
+  // Magic:
+  @media (max-width: 1140px) {
+    font-size: calc(12px + .4vw);
+  }
+}
 
 body {
   background: image_url('round.png');
@@ -9,19 +18,38 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Pacifico';
   margin: 0;
   padding: 0;
 }
 
 h1 a {
   color: black;
-  font-size: .9em;
-  font-weight: bold;
-  letter-spacing: -.05em;
+  font-size: 2.5rem;
 }
 
 h1 a:hover {
   color: #444444;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h3 {
+  font-size: 1.5rem;  
+}
+
+h4 {
+  font-size: 1.2rem;  
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;  
 }
 
 blockquote {
@@ -91,6 +119,10 @@ blockquote p {
   box-shadow: 1px 1px 2px 0 #d0d0d0;
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+}
+
+.my-auto {
+  margin: auto;
 }
 
 // Pagination
