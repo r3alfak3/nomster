@@ -63,5 +63,7 @@
 <% end %>
 
 <div class="booyah-box col-8 offset-2 rounded-lg">
-  <%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
+  <div class="text-center">
+    <%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
+  </div>
 </div>

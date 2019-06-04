@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :place
+  validates :message, :rating, presence: true
   after_create :send_comment_email
 
   RATINGS = {

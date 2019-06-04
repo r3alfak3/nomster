@@ -3,11 +3,10 @@
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:400,700,900');
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
-@import "../app/assets/rfs/scss";
+@import "scss.scss";
 
 body {
   background: image_url('round.png');
-  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
 a {
@@ -20,37 +19,31 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Pacifico';
+  font-family: 'Abril Fatface';
   margin: 0;
   padding: 0;
 }
 
 h1 {
-  font-size: 1.8rem;
 }
 
 h2 {
-  font-size: 1.7rem;
   color: #333333;
 }
 
 h3 {
-  font-size: 1.5rem;  
   color: #222222;
 }
 
 h4 {
-  font-size: 1.2rem;  
   color: #111111;
 }
 
 h5 {
-  font-size: 1rem;
   color: #000000;
 }
 
 p {
-  font-size: .75rem;  
 }
 
 p.copyright {
@@ -98,10 +91,6 @@ blockquote p {
   box-shadow: 0px 2px 3px #666666;
 }
 
-.nav-link {
-  font-size: 1em;
-}
-
 .navbar-inverse .navbar-brand {
   color: #F7B733;
   font-family: 'chunkfiveroman', sans-serif;
@@ -147,7 +136,8 @@ footer h3 {
   background: white;
   cursor: default;
   a, span, em {
-    padding: .35em .65em;
+    font-size: 1rem;
+    padding: .35em .75em;
     display: inline-block;
     float: left;
     margin-right: 1px;
@@ -175,6 +165,8 @@ footer h3 {
       color: #888888;
       border: 1px solid #888888;
       border-radius: 5px;
+      transition: background-color .3s;
+      background-color: #cccccc;
     }
   }
   
