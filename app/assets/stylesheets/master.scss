@@ -5,21 +5,32 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 @import "scss.scss";
 
-body {
-  background: image_url('round.png');
+.red {color: #ff0000;}
+.blue {color: #0000ff;}
+.yellow {color: #fff200;}
+.black {color: #000000;}
+.white {color: #ffffff;}
+.house {font-family: 'houseslant';}
+.extra-lrg {font-size: 5rem; line-height: 4rem;  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.35);}
+hr{
+    border: 0;
+    border-bottom: 3px dotted #dddddd;
+    background: none;
 }
 
+body { font-family: 'houseslant';}
+
 a {
-  color: #555555;
+  color: #0000ff;
   text-decoration: none;
   &:hover, &:focus {
-  color: #888888;
   text-decoration: none;
+  color: #000000;
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Abril Fatface';
+  font-family: 'houseslant';
   margin: 0;
   padding: 0;
 }
@@ -43,15 +54,8 @@ h5 {
   color: #000000;
 }
 
-p {
-}
-
 p.copyright {
   font-size: .6rem;
-}
-
-.af {
-  font-family: 'Abril Fatface';
 }
 
 blockquote {
@@ -80,36 +84,38 @@ blockquote p {
 }
 
 .invalid-feedback {
-  color: #ff3333;
   background-color: #ffeeee;
   border-radius: 3px;
   padding: 2px 8px;  
 }
 
-.navbar, footer {
-  background: image_url('dark_fish_skin.png');
-  box-shadow: 0px 2px 3px #666666;
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 1px 1px 2px 0  rgba(55,55,55,.5);
+  -moz-box-shadow: 1px 1px 2px 0  rgba(55,55,55,.5);
+  -webkit-box-shadow: 1px 1px 2px 0  rgba(55,55,55,.5);
+}
+
+footer {
+  background-color: #000000;  
 }
 
 .navbar-inverse .navbar-brand {
-  color: #F7B733;
-  font-family: 'chunkfiveroman', sans-serif;
-  font-size: 40px;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
+  font-family: 'houseslant', sans-serif;
+}
+
+.nav-link {
+  font-size: 1.6rem;
+  z-index: 9012;
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  z-index: 9013;
 }
 
 .navbar-nav a, footer, footer a, footer a:hover {
-  color: white;
-  font-family: 'Lato';
   font-weight: 700;
-}
-
-footer h3 {
-  color: #ffffff
 }
 
 #map {
@@ -122,9 +128,9 @@ footer h3 {
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   margin: 10px auto 15px;
   padding: 20px;
-  box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0  rgba(55,55,55,.5);
+  -moz-box-shadow: 1px 1px 2px 0  rgba(55,55,55,.5);
+  -webkit-box-shadow: 1px 1px 2px 0  rgba(55,55,55,.5);
 }
 
 .my-auto {
@@ -136,8 +142,8 @@ footer h3 {
   background: white;
   cursor: default;
   a, span, em {
-    font-size: 1rem;
-    padding: .35em .75em;
+    font-size: 2rem;
+    padding: .05em .45em;
     display: inline-block;
     float: left;
     margin-right: 1px;
@@ -197,15 +203,11 @@ footer h3 {
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.35);
-  font-family: 'chunkfiveroman', Helvetica, sans-serif;
   font-size: 60px;
   left: 0;
   position: absolute;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
   width: 100%;
-  h3 {
-    color: #ffffff;
-  }
 }
 
 /*
@@ -214,3 +216,29 @@ footer h3 {
 #F7B733 Yellow
 #DFDCE3 Steel
 */
+
+.logo {
+  z-index: 9001;
+  position: fixed;
+}
+
+#oval {
+   background-color: #fff200;
+   width: 250px; 
+   height: 80px; 
+   -moz-border-radius: 125px / 40px; 
+   -webkit-border-radius: 125px / 40px; 
+   border-radius: 125px / 40px;
+   transform: rotate(-7deg);
+     box-shadow: 2px 2px 2px 0  rgba(55,55,55,.5);
+  -moz-box-shadow: 2px 2px 2px 0  rgba(55,55,55,.5);
+  -webkit-box-shadow: 2px 2px 2px 0  rgba(55,55,55,.5);
+   z-index:9000;
+   margin: auto;
+}
+
+.centerOval {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}

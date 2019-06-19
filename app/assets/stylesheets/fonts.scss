@@ -9,3 +9,15 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'houseslant';
+    src: font_url('houseslant-regular-webfont.eot');
+    src: font_url('houseslant-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         font_url('houseslant-regular-webfont.woff2') format('woff2'),
+         font_url('houseslant-regular-webfont.woff') format('woff'),
+         font_url('chunhouseslant-regular-webfontkfive.ttf') format('truetype'),
+         font_url('houseslant-regular-webfont.svg#houseslant-regular-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -8,19 +8,19 @@
     <div class="carousel-item active">
       <%= image_tag 'slide-001.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block rounded-lg">
-        <h3>Dope stencil work at Black Ink Harlem</h3>
+        <h3 class="yellow">Dope stencil work at Black Ink Harlem</h3>
       </div>
     </div>
     <div class="carousel-item">
       <%= image_tag 'slide-002.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block rounded-lg">
-        <h3>White Plains Road graffiti spot</h3>
+        <h3 class="yellow">White Plains Road graffiti spot</h3>
       </div>
     </div>
     <div class="carousel-item">
       <%= image_tag 'slide-003.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block rounded-lg">
-        <h3>Diner art using breakfast cereal</h3>
+        <h3 class="yellow">Diner art using breakfast cereal</h3>
       </div>
     </div>
   </div>
@@ -36,27 +36,32 @@
 
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1 rounded-lg">
+      <div class="col-12 text-center">
+        <h1 class="blue extra-lrg"><%= link_to place.name, place_path(place) %></h1>
+        <h3 class="pt-2"><%= place.address %></h3>
+        <hr />
+      </div>
     <div class="col-12 col-lg-6 float-left">
-      <h1><%= link_to place.name, place_path(place) %></h1>
-      <i><%= place.description %></i><br /><br />
-      <p><%= place.address %></p>
+      <i><h5 class="text-center text-md-center"><%= place.description %></i></h5>
       <% if place.user.present? %>
-        <small><%= "Contributed by: " + place.user.email %></small>
         <% if place.comments.present? %>
+            <h4 class="red text-center text-md-left pt-5">Last Comment</h4>
             <blockquote>
               <% if place.comments.last.humanized_rating.present? %>
                 <b><%= place.comments.last.humanized_rating %></b> -
               <% end %>
               <%= place.comments.last.message %>
-              <small><%= place.comments.last.user.email %></small>
+              <small class="float-right"><%= place.comments.last.user.email %></small>
+              <div class="clear"></div>
             </blockquote>
         <% end %>
       <% end %>
     </div>
-    <div class="col-12 col-lg-6 float-right">
+    <div class="col-12 col-lg-6 float-right text-center text-md-left">
       <% if place.image_places.any? %>
         <%= image_tag place.image_places.first.imagePlace.url, class: 'img-fluid rounded-lg' %>
       <% end %>
+      <small><%= "Place contributed by: " + place.user.email %></small>
     </div>
   <div class="clear"></div>
   </div>
@@ -64,6 +69,6 @@
 
 <div class="booyah-box col-8 offset-2 rounded-lg">
   <div class="text-center">
-    <%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
+    <%= will_paginate @places, previous_label: h("<"), next_label: h(">"), class: 'house pagination' %>
   </div>
 </div>

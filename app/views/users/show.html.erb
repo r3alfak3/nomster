@@ -13,9 +13,9 @@
   <div class="clear"></div>
 </div>
 
-<div class="booyah-box col-10 offset-1 rounded-lg">
-  <% if @user.comments.any? %>
-  <h2 class="af">My Comments</h2><br />
+<% if @user.comments.any? %>
+  <div class="booyah-box col-10 offset-1 rounded-lg">
+  <h2 class="red text-center text-md-center">My Comments</h2><br />
     <div class="row">
       <% @user.comments.each do |comment| %>
         <div class="col-12 col-sm-6">
@@ -32,17 +32,17 @@
         </div>
       <% end %> 
     </div>
+  </div>
 <% end %>
-</div>
 
-<div class="booyah-box col-10 offset-1 rounded-lg">
-  <% if @user.places.any? %>
-    <h2 class="af">My Places</h2><br />
+<% if @user.places.any? %>
+  <div class="booyah-box col-10 offset-1 rounded-lg">
+    <h2 class="red text-center text-md-center">My Places</h2><br />
     <% @user.places.each do |place| %>
       <div class="col-12 col-sm-6 float-left">
-        <h1><%= link_to place.name, place_path(place) %></h1>
-        <i><%= place.description %></i><br />
-        <p><%= place.address %></p><br />
+        <h1 class="extra-lrg text-center text-md-left"><%= link_to place.name, place_path(place) %></h1>
+        <h3 class="text-center text-md-left pt-2"><%= place.address %></h3><br />
+        <h5 class="text-center text-md-left"><i><%= place.description %></i><h5><br />
       </div>
       <% if place.comments.present? %>
         <div class="col-12 col-sm-6 float-right">
@@ -63,5 +63,5 @@
         <% end %>
       <div class="clear"></div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
